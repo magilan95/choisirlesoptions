@@ -1,0 +1,306 @@
+<br><br>
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="success" class="alert alert-success">{{success}}</div>
+<div>
+<div id="theForm">
+  <h2>Veuillez remplir le formulaire afin de choisir vos options </h2>
+  <br>
+  <form #f="ngForm" name="theForm" (submit)="addCar(f)">
+    
+
+   
+	
+	<div class="form-group">
+      <label>numero étudiant</label>
+	  
+      <input type="number"
+            class="form-control"
+            name="num_id"
+            required
+            [(ngModel)]="car.num_id"
+            #carnum_id="ngModel">
+      <span class="help-block danger" *ngIf="carnum_id.errors?.required && carnum_id.touched">
+        The num_id is required
+      </span>
+    </div>
+	<div class="form-group">
+      <label>Moyenne</label>
+      <input type="number" step="0.01" min="0" max="20"
+            class="form-control"
+            name="moyenne"
+            required
+            [(ngModel)]="car.moyenne"
+            #carmoyenne="ngModel">
+      <span class="help-block danger" *ngIf="carmoyenne.errors?.required && carmoyenne.touched">
+        The moyenne is required
+      </span>
+    </div>
+	<br><br>
+	Choisissez l'ordre dans lequel vous préférer ces options. (De 1 à 8)<br> Notre algorithme trouvera les 3 options que vous devrez suivre en fonctions des choix d'options des autres élèves. 
+	<br><br>
+	<div class="form-group">
+      <label>Deep Learning</label>
+	  <br><br>
+	  Le Deep Learning permet de construire des modèles prédictifs hiérarchiques appelés réseaux de neurones artificiels. Grâce à leur structure, ces réseaux construisent automatiquement des représentations de plus en plus abstraites des données.
+      <select 
+            class="form-control"
+            name="dle"
+            required
+            [(ngModel)]="car.dle"
+            #cardle="ngModel">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+	  </select>
+      <span class="help-block danger" *ngIf="cardle.errors?.required && cardle.touched">
+        The deep learning is required
+      </span>
+    </div>
+	<br><hr>
+	<div class="form-group">
+      <label>Apprentissage Statistique</label>
+	  <br><br>
+	  Ce cours portera sur l'analyse de données de grande dimension, signaux, images, bioinformatique, données économiques, les domaines d'applications dans lesquels d'importants volumes de données sont collectées et demandent à être analysées, classées, corrélées sont nombreux.
+
+      <select
+            class="form-control"
+            name="aps"
+            required
+            [(ngModel)]="car.aps"
+            #caraps="ngModel">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+	  </select>
+      <span class="help-block danger" *ngIf="caraps.errors?.required && caraps.touched">
+        The apprentissage statistique is required
+      </span>
+    </div>
+	<br><hr>
+	<div class="form-group">
+      <label>Apprentissage de Représentation Visuelle</label>
+	  <br><br>
+	  Ce cours portera sur l'analyse d'images et fonctions (restructuration, compression...)
+
+      <select
+            class="form-control"
+            name="arv"
+            required
+            [(ngModel)]="car.arv"
+            #cararv="ngModel">
+			
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+	  </select>		
+      <span class="help-block danger" *ngIf="cararv.errors?.required && cararv.touched">
+        The apprentissage de représentation visuelle is required
+      </span>
+    </div>
+	<br><hr>
+	<div class="form-group">
+      <label>Interaction Homme Machine</label>
+	  <br><br>
+	  Ce cours portera sur l'étude de la conception des systèmes informatiques interactifs
+      <select
+            class="form-control"
+            name="ihm"
+            required
+            [(ngModel)]="car.ihm"
+            #carihm="ngModel">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+	  </select>
+      <span class="help-block danger" *ngIf="carihm.errors?.required && carihm.touched">
+        The interaction homme machine is required
+      </span>
+    </div>
+	<br><hr>
+	<div class="form-group">
+		<label>Fouille de Données Textuelle</label>
+		<br><br>
+		Ce cours portera sur l'identification de thèmes qui vise à regrouper des textes, classement de textes qui vise à affecter des textes et l'extraction d'informations qui vise à mettre en correspondance des textes avec des "schéma".
+
+		<select
+		class="form-control"
+		name="fdt"
+		required
+		[(ngModel)]="car.fdt"
+		#carfdt="ngModel">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+		</select>
+		<span class="help-block danger" *ngIf="carfdt.errors?.required && carfdt.touched">
+		The fouille de données textuelle is required
+		</span>
+	</div>
+	<br><hr>
+	<div class="form-group">
+      <label>Analyse des Reseaux Sociaux</label>
+	  <br><br>
+	  Ce cours portera sur les fondements théoriques des réseaux sociaux, leur structure et leur propagation.
+
+      <select
+            class="form-control"
+            name="ars"
+            required
+            [(ngModel)]="car.ars"
+            #carars="ngModel">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+	  </select>		
+      <span class="help-block danger" *ngIf="carars.errors?.required && carars.touched">
+        The analyse des reseaux sociaux is required
+      </span>
+    </div>
+	
+	
+    <button
+        class="btn btn-primary btn-sm"
+        [disabled]="f.invalid">Add</button>
+  </form>
+</div>
+<div class="d-none">
+  <div class="list-group">
+      <div *ngFor="let item of rendu;let i = index;" class="list-group-item row">
+			<div class="col-4" style="float:left">
+			<input type="text" disabled
+                 [(ngModel)]="rendu[i].option_choix"
+                 class="form-control"
+                 required
+                 #option_choix="ngModel"
+                 [ngClass]="{ 'is-invalid': option_choix.touched && option_choix.invalid }">
+			</div>
+      
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="premier_numero_étudiant"
+                 [(ngModel)]="rendu[i].premier"
+                 class="form-control"
+                 required
+                 #premier="ngModel"
+                 [ngClass]="{ 'is-invalid': premier.touched && premier.invalid }">
+			</div>
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="deuxieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].deuxieme"
+                 class="form-control"
+                 required
+                 #deuxieme="ngModel"
+                 [ngClass]="{ 'is-invalid': deuxieme.touched && deuxieme.invalid }">
+			</div>
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="troisieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].troisieme"
+                 class="form-control"
+                 required
+                 #troisieme="ngModel"
+                 [ngClass]="{ 'is-invalid': troisieme.touched && troisieme.invalid }">
+			</div>
+      
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="quatrieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].quatrieme"
+                 class="form-control"
+                 required
+                 #quatrieme="ngModel"
+                 [ngClass]="{ 'is-invalid': quatrieme.touched && quatrieme.invalid }">
+			</div>
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="cinquieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].cinquieme"
+                 class="form-control"
+                 required
+                 #cinquieme="ngModel"
+                 [ngClass]="{ 'is-invalid': cinquieme.touched && cinquieme.invalid }">
+			</div>
+			<div class="col-4" style="float:left">
+          <input type="button"
+                 value="Update"
+                 class="btn btn-success btn-sm"
+                 [disabled]="premier.invalid || deuxieme.invalid || troisieme.invalid || quatrieme.invalid || cinquieme.invalid "
+                 (click)="updateRendu( item.id,option_choix, premier, deuxieme, troisieme, quatrieme, cinquieme)">
+          
+
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+<br><br>
+<div id="theList">
+    <h2>Voici la liste des éleves qui ont entrés leurs choix ainsi que leur choix d'options  </h2>
+	<h4>(il y a 10 élèves maximum dans la classe, les options sont limités à 5 élèves par option et les élèves suivrons 3 options)</h4>
+
+    
+ 
+  <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th >Numéro étudiant</th>
+			<th >Moyenne</th>
+			<th >Deep Learning</th>
+			<th >Apprentissage Statistique</th>
+			<th >Apprentissage de représentation visuelle</th>
+			<th >Interaction Homme-machine</th>
+			<th >Fouille de données textuelle</th>
+			<th >Analyse des réseaux sociaux</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of cars;let i = index;">
+			<td >
+                 {{cars[i].num_id}}
+			</td>
+			<td >
+				{{cars[i].moyenne}}
+			</td>
+			<td >
+				{{cars[i].dle}}
+			</td>
+			<td >
+				{{cars[i].aps}}
+			</td>
+			<td >
+				{{cars[i].arv}}
+			</td>
+			<td >
+				{{cars[i].ihm}}
+			</td>
+			<td >
+				{{cars[i].fdt}}
+			</td>
+			<td >
+				{{cars[i].ars}}
+			</td>
+            
+        </tr>
+    </tbody>
+</table>
+ </div>
+ <br><br>

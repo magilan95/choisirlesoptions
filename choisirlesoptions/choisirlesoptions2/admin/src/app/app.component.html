@@ -1,0 +1,322 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="success" class="alert alert-success">{{success}}</div>
+<div>
+
+<div class="d-none">
+  <div class="list-group">
+      <div *ngFor="let item of rendu;let i = index;" class="list-group-item row">
+			<div class="col-4" style="float:left">
+			<input type="text" disabled
+                 [(ngModel)]="rendu[i].option_choix"
+                 class="form-control"
+                 required
+                 #option_choix="ngModel"
+                 [ngClass]="{ 'is-invalid': option_choix.touched && option_choix.invalid }">
+			</div>
+      
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="premier_numero_étudiant"
+                 [(ngModel)]="rendu[i].premier"
+                 class="form-control"
+                 required
+                 #premier="ngModel"
+                 [ngClass]="{ 'is-invalid': premier.touched && premier.invalid }">
+			</div>
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="deuxieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].deuxieme"
+                 class="form-control"
+                 required
+                 #deuxieme="ngModel"
+                 [ngClass]="{ 'is-invalid': deuxieme.touched && deuxieme.invalid }">
+			</div>
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="troisieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].troisieme"
+                 class="form-control"
+                 required
+                 #troisieme="ngModel"
+                 [ngClass]="{ 'is-invalid': troisieme.touched && troisieme.invalid }">
+			</div>
+      
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="quatrieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].quatrieme"
+                 class="form-control"
+                 required
+                 #quatrieme="ngModel"
+                 [ngClass]="{ 'is-invalid': quatrieme.touched && quatrieme.invalid }">
+			</div>
+	  
+			<div class="col-4" style="float:left">
+			<input type="text" placeholder="cinquieme_numero_étudiant"
+                 [(ngModel)]="rendu[i].cinquieme"
+                 class="form-control"
+                 required
+                 #cinquieme="ngModel"
+                 [ngClass]="{ 'is-invalid': cinquieme.touched && cinquieme.invalid }">
+			</div>
+			<div class="col-4" style="float:left">
+          <input type="button"
+                 value="Update"
+                 class="btn btn-success btn-sm"
+                 [disabled]="premier.invalid || deuxieme.invalid || troisieme.invalid || quatrieme.invalid || cinquieme.invalid "
+                 (click)="updateRendu( item.id,option_choix, premier, deuxieme, troisieme, quatrieme, cinquieme)">
+          
+
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+<br><br>
+<div id="theList">
+    <h2>Voici la liste des éleves qui ont entrés leurs choix ainsi que leur choix d'options  </h2>
+	<h4>(il y a 10 élèves maximum dans la classe, les options sont limités à 5 élèves par option et les élèves suivrons 3 options)</h4>
+
+    <div class="list-group">
+      <div *ngFor="let item of cars;let i = index;" class="list-group-item row">
+        
+        
+		
+		<div class="col-4" style="float:left">
+		Numéro étudiant
+          <input type="number" 
+                 [(ngModel)]="cars[i].num_id"
+                 class="form-control"
+                 required
+                 #num_id="ngModel"
+                 [ngClass]="{ 'is-invalid': num_id.touched && num_id.invalid }">
+        </div>
+		
+		<div class="col-4" style="float:left">
+		Moyenne
+          <input type="number" step="0.01" d
+                 [(ngModel)]="cars[i].moyenne"
+                 class="form-control"
+                 required
+                 #moyenne="ngModel"
+                 [ngClass]="{ 'is-invalid': moyenne.touched && moyenne.invalid }">
+        </div>
+		
+		<div class="col-4" style="float:left">
+		Deep Learning
+          <input type="number" 
+                 [(ngModel)]="cars[i].dle"
+                 class="form-control"
+                 required
+                 #dle="ngModel"
+                 [ngClass]="{ 'is-invalid': dle.touched && dle.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Apprentissage Statistique
+          <input type="number" 
+                 [(ngModel)]="cars[i].aps"
+                 class="form-control"
+                 required
+                 #aps="ngModel"
+                 [ngClass]="{ 'is-invalid': aps.touched && aps.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Apprentissage de représentation visuelle
+          <input type="number" 
+                 [(ngModel)]="cars[i].arv"
+                 class="form-control"
+                 required
+                 #arv="ngModel"
+                 [ngClass]="{ 'is-invalid': arv.touched && arv.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Interaction Homme-machine
+          <input type="number" 
+                 [(ngModel)]="cars[i].ihm"
+                 class="form-control"
+                 required
+                 #ihm="ngModel"
+                 [ngClass]="{ 'is-invalid': ihm.touched && ihm.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Fouille de données textuelle
+          <input type="number" 
+                 [(ngModel)]="cars[i].fdt"
+                 class="form-control"
+                 required
+                 #fdt="ngModel"
+                 [ngClass]="{ 'is-invalid': fdt.touched && fdt.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Analyse des réseaux sociaux
+          <input type="number" 
+                 [(ngModel)]="cars[i].ars"
+                 class="form-control"
+                 required
+                 #ars="ngModel"
+                 [ngClass]="{ 'is-invalid': ars.touched && ars.invalid }">
+        </div>
+		
+
+		
+		
+        <div class="col-4" style="float:left">
+		<br>
+          <input type="button"
+                 value="Update"
+                 class="btn btn-success btn-sm"
+                 [disabled]="moyenne.invalid || num_id.invalid || dle.invalid || aps.invalid || arv.invalid || ihm.invalid || fdt.invalid || ars.invalid"
+                 (click)="updateCar( moyenne, item.id, num_id, dle, aps, arv, ihm, fdt, ars)">
+          &nbsp;
+          <input type="button"
+                 value="Delete"
+                 class="btn btn-danger btn-sm"
+                 (click)="deleteCar(item.id)">
+		  
+        </div>
+		
+      </div>
+    </div>
+  </div>
+  
+  <br><br>
+<div id="theList">
+    <h2>Voici la liste des options ainsi que les élèves qui s'y trouvent   </h2>
+	<h4>(il y a 10 élèves maximum dans la classe, les options sont limités à 5 élèves par option et les élèves suivrons 3 options)</h4>
+
+    <div class="list-group">
+      <div *ngFor="let item of rendu;let i = index;" class="list-group-item row">
+        
+        
+		
+		<div class="col-4" style="float:left">
+		Option
+          <input type="text" disabled
+                 [(ngModel)]="rendu[i].option_choix"
+                 class="form-control"
+                 required
+                 #option_choix="ngModel"
+                 [ngClass]="{ 'is-invalid': option_choix.touched && option_choix.invalid }">
+        </div>
+		
+		<div class="col-4" style="float:left">
+		Premier élève
+          <input type="number"  
+                 [(ngModel)]="rendu[i].premier"
+                 class="form-control"
+                 required
+                 #premier="ngModel"
+                 [ngClass]="{ 'is-invalid': premier.touched && premier.invalid }">
+        </div>
+		
+		<div class="col-4" style="float:left">
+		Deuxieme élève
+          <input type="number" 
+                 [(ngModel)]="rendu[i].deuxieme"
+                 class="form-control"
+                 required
+                 #deuxieme="ngModel"
+                 [ngClass]="{ 'is-invalid': deuxieme.touched && deuxieme.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Troisieme élève
+          <input type="number" 
+                 [(ngModel)]="rendu[i].troisieme"
+                 class="form-control"
+                 required
+                 #troisieme="ngModel"
+                 [ngClass]="{ 'is-invalid': troisieme.touched && troisieme.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Quatrieme élève
+          <input type="number" 
+                 [(ngModel)]="rendu[i].quatrieme"
+                 class="form-control"
+                 required
+                 #quatrieme="ngModel"
+                 [ngClass]="{ 'is-invalid': quatrieme.touched && quatrieme.invalid }">
+        </div>
+		<div class="col-4" style="float:left">
+		Cinquieme élève
+          <input type="number" 
+                 [(ngModel)]="rendu[i].cinquieme"
+                 class="form-control"
+                 required
+                 #cinquieme="ngModel"
+                 [ngClass]="{ 'is-invalid': cinquieme.touched && cinquieme.invalid }">
+        </div>
+		
+		
+
+		
+		
+        <div class="col-4" style="float:left">
+		<br>
+          <input type="button"
+                 value="Update"
+                 class="btn btn-success btn-sm"
+                 [disabled]="option_choix.invalid || premier.invalid || deuxieme.invalid || troisieme.invalid || quatrieme.invalid || cinquieme.invalid "
+                 (click)="updateRendu(  item.id, option_choix, premier, deuxieme, troisieme, quatrieme, cinquieme)">
+          
+		  
+        </div>
+		
+      </div>
+    </div>
+	</div>
+<br><br>
+	<div class="list-group">
+	
+		
+			<input type="button"
+                 value="Lancer l'algorithme"
+                 class="btn btn-primary btn-sm"
+                 (click)="updatetout()">
+		
+	</div>
+<br><br>
+<div id="theList">
+    <h2>Voici la liste des éleves qui ont entrés leurs choix ainsi que leur choix d'options  </h2>
+	<h4>(il y a 10 élèves maximum dans la classe, les options sont limités à 5 élèves par option et les élèves suivrons 3 options)</h4>
+
+    
+ 
+  <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th >option_choix</th>
+			<th >premier élève</th>
+			<th >deuxieme élève</th>
+			<th >troisieme élève</th>
+			<th >quatrieme élève</th>
+			<th >cinquieme élève</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of rendu;let i = index;">
+			<td >
+                 {{rendu[i].option_choix}}
+			</td>
+			<td >
+				{{rendu[i].premier}}
+			</td>
+			<td >
+				{{rendu[i].deuxieme}}
+			</td>
+			<td >
+				{{rendu[i].troisieme}}
+			</td>
+			<td >
+				{{rendu[i].quatrieme}}
+			</td>
+			<td >
+				{{rendu[i].cinquieme}}
+			</td>
+			
+        </tr>
+    </tbody>
+</table>
+ </div>
+ <br><br>
